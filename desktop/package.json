@@ -1,0 +1,41 @@
+{
+  "name": "ludicall-desktop",
+  "version": "1.0.2",
+  "private": true,
+  "description": "Cliente desktop do Ludicall para Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^45.5.0",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "app.ludicall.desktop",
+    "productName": "Ludicall",
+    "files": [
+      "main.js",
+      "assets/ludicall.ico"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "signAndEditExecutable": false,
+      "icon": "assets/ludicall.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Ludicall"
+    }
+  }
+}
